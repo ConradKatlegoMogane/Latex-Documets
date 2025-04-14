@@ -1,0 +1,372 @@
+%%%%
+% MTecknology's Resume
+%%%%
+% Author: Michael Lustfield
+% License: CC-BY-4
+% - https://creativecommons.org/licenses/by/4.0/legalcode.txt
+%%%%
+
+\documentclass[letterpaper,10pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN_FILE: mteck.sty
+%% NOTE: Everything between here and END_FILE can
+%% be relocated to "mteck.sty" and then included with:
+%\usepackage{mteck}
+
+% Dependencies
+% NOTE: Some packages (lastpage, hyperref) require second build!
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{lastpage}
+
+% Sans-Serif
+%\usepackage[sfdefault]{FiraSans}
+%\usepackage[sfdefault]{roboto}
+%\usepackage[sfdefault]{noto-sans}
+%\usepackage[default]{sourcesanspro}
+
+% Serif
+\usepackage{CormorantGaramond}
+\usepackage{charter}
+
+% Colors
+% Use with \color{Name}
+% Can wrap entire heading with {\color{accent} [...] }
+\usepackage{xcolor}
+\definecolor{accentTitle}{HTML}{0e6e55}
+\definecolor{accentText}{HTML}{0e6e55}
+\definecolor{accentLine}{HTML}{a16f0b}
+
+% Misc. Options
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+
+% Adjust Margins
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\textheight}{1.4in}
+
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{3.7pt}
+\raggedbottom
+\raggedright
+
+% ATS Readability
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+%-----------------%
+% Custom Commands %
+%-----------------%
+
+% Centered title along with subtitle between HR
+% Usage: \documentTitle{Name}{Details}
+\newcommand{\documentTitle}[2]{
+	\begin{center}
+		{\Huge\color{accentTitle} #1}
+		\vspace{10pt}
+		{\color{accentLine} \hrule}
+		\vspace{2pt}
+		%{\footnotesize\color{accentTitle} #2}
+		\footnotesize{#2}
+		\vspace{2pt}
+		{\color{accentLine} \hrule}
+	\end{center}
+}
+
+% Create a footer with correct padding
+% Usage: \documentFooter{\thepage of X}
+\newcommand{\documentFooter}[1]{
+	\setlength{\footskip}{10.25pt}
+	\fancyfoot[C]{\footnotesize #1}
+}
+
+% Simple wrapper to set up page numbering
+% Usage: \numberedPages
+% WARNING: Must run pdflatex twice!
+\newcommand{\numberedPages}{
+	\documentFooter{\thepage/\pageref{LastPage}}
+}
+
+% Section heading with horizontal rule
+% Usage: \section{Title}
+\titleformat{\section}{
+	\vspace{-5pt}
+	\color{accentText}
+	\raggedright\large\bfseries
+}{}{0em}{}[\color{accentLine}\titlerule]
+
+% Section heading with separator and content on same line
+% Usage: \tinysection{Title}
+\newcommand{\tinysection}[1]{
+	\phantomsection
+	\addcontentsline{toc}{section}{#1}
+	{\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
+}
+
+% Indented line with arguments left/right aligned in document
+% Usage: \heading{Left}{Right}
+\newcommand{\heading}[2]{
+	\hspace{10pt}#1\hfill#2\\
+}
+
+% Adds \textbf to \heading
+\newcommand{\headingBf}[2]{
+	\heading{\textbf{#1}}{\textbf{#2}}
+}
+
+% Adds \textit to \heading
+\newcommand{\headingIt}[2]{
+	\heading{\textit{#1}}{\textit{#2}}
+}
+
+% Template for itemized lists
+% Usage: \begin{resume_list} [items] \end{resume_list}
+\newenvironment{resume_list}{
+	\vspace{-7pt}
+	\begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=30pt]
+	}{
+	\end{itemize}
+	%\vspace{-2pt}
+}
+
+% Formats an item to use as an itemized title
+% Usage: \itemTitle{Title}
+\newcommand{\itemTitle}[1]{
+	\item[] \underline{#1}\vspace{4pt}
+}
+
+% Bullets used in itemized lists
+\renewcommand\labelitemi{--}
+
+%% END_FILE: mteck.sty
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%===================%
+% John Doe's Resume %
+%===================%
+
+%\numberedPages % NOTE: last page requires a second build
+%\documentFooter{\thepage of 2} % Does similar without using last page
+\begin{document}
+	
+	%---------%
+	% Heading %
+	%---------%
+	
+	\documentTitle{Conrad Katlego Mogane}{
+		% Web Version
+		%\raisebox{-0.05\height} \faPhone\ [redacted - web copy] ~
+		%\raisebox{-0.15\height} \faEnvelope\ [redacted - web copy] ~
+		%%
+		\vspace{9pt}
+		\href{tel:0834393713}{
+			\raisebox{-0.05\height} \faPhone\ 083-439-3713} ~ | ~
+		\href{mailto:conradmogane@gmail.com}{
+			\raisebox{-0.15\height} \faEnvelope\ conradmogane@gmail.com} ~ | ~
+		\href{https://www.linkedin.com/in/conrad-mogane-55a8947b}{
+			\raisebox{-0.15\height} \faLinkedin\ https://www.linkedin.com/in/conrad-mogane-55a8947b/} ~ | ~
+		\href{https://github.com/ConradKatlegoMogane}{
+			\raisebox{-0.15\height} \faGithub\ https://github.com/ConradKatlegoMogane}
+	}
+	\vspace{9pt}
+	%---------%
+	% Summary %
+	%---------%
+	\vspace{9pt}
+	\tinysection{Summary}
+	I am an experienced Data Administrator and Laboratory Technologist with expertise in data management, clinical research, and laboratory diagnostics. Skilled in REDCap, LIMS, SQL Server, and laboratory techniques such as PBMC isolation, DNA extraction, and ELISpot. Proven ability to ensure data integrity, quality control, and compliance with GCLP/GCP standards.
+	Strong background in research support, protocol implementation, and training across institutions like University of KwaZulu-Natal, MRC/Wits Agincourt, and Wits University. Passionate about scientific research, data-driven decision-making,  advancing  clinical and laboratory best practices end to end.
+	\vspace{9pt}
+	%--------%
+	% Skills %
+	%--------%
+	
+	\section{Skills}
+	
+	\begin{multicols}{1}
+		\begin{itemize}[itemsep=2px, parsep=1pt, leftmargin=75pt]
+			
+			\item[\textbf{Biostatistics}] Analytics and Visualisation
+			\item[\textbf{Data Analysis}] Python, Bash, R, Execl,PowerBI
+			\item[\textbf{GCLP and GLP}] Ethics
+			
+			\item[\textbf{Clinical trials}] Research Acumen
+			\item[\textbf{Data Management}] Full Data Lifecycle
+			\item[\textbf{Biomedical Research}]Laboratory Operations
+		\end{itemize}
+	\end{multicols}
+	\vspace{9pt}
+	%------------%
+	% Experience %
+	%------------%
+	
+	\section{Experience}
+	
+	\headingBf{University of Kwa-Zulu Natal, South Africa}{Apr 2019 -- }
+	\headingBf{Laboratory Technologist | Data Administrator}{}
+	\begin{resume_list}
+		
+		\itemTitle{Laboratory Technologist Responsibilities :}
+		\item 	Conduct PBMC Isolation, ELISpot, DNA Extraction, Western Blot, Mucosal Processing, and Specimen Reception.
+		\item 	Prepare reagents and catalog specimens at various storage temperatures.
+		\item 	Perform daily quality control and assurance on equipment and assay methodologies.
+		\item 	Act as the study representative for active research projects and maintain study integrity.
+		\item 	Engage in professional development activities such as Journal Club, research updates, laboratory meetings, and training sessions.
+		\item 	Assist in training colleagues and students in laboratory procedures and protocols.
+		\item 	Implement study protocol amendments as directed by the Principal Investigator or Study Coordinator.
+		\item 	Document protocol deviations and contribute to the analytical study plan.
+		\item 	Monitor and report monthly recruitment, enrollment, and assay performance statistics.
+		\item 	Support laboratory maintenance, including tracking reagents and consumable inventory.
+		\item   Ensure laboratory equipment is calibrated and cleaned according to required standards.
+		\vspace{9pt}
+		\itemTitle{Data Administrator Responsibilities :}
+		\item Maintain master data, perform weekly backups, and address user requests.
+		\item Extract, analyze and report study-related data to stakeholders and management.
+		\item Add and update participant and study information in the LIMS system.
+		\item Ensure that all study-related data across various systems remains accurate and current.
+		\item Manage access control for laboratory users.
+		\item Assist research teams, laboratory staff, and management with accessing study information remotely via the LIMS system.
+		Before processing, verify that participant names and locations on laboratory request forms are accurate.
+		\item Update and correct the comment fields on the MSSQL server as necessary.
+		\item Configure tests and related data requirements within the LIMS system.
+	\end{resume_list}
+	
+	\headingBf{MRC/Wits Health Consortium, Johannesburg, South Africa}{Jun 2018 -- Mar 2019}
+	\headingBf{Clinical Laboratory Scientist }{}
+	\begin{resume_list}
+		\item Determines normal and abnormal components of body fluids by 
+		conducting chemical analyses of blood, urine, and other biological fluids. Analyze samples using various techniques and procedures.
+		\item Ensuring operation of laboratory equipment by calibrating; 
+		completing preventive maintenance requirements, following manufacturer's instructions, troubleshooting malfunctions, calling for repairs, maintaining equipment inventories, and evaluating new equipment and techniques.
+		\item Maintain laboratory supplies inventory; anticipating needed supplies; placing and expediting orders; verifying receipt of supplies.
+		\item Prepare reports of technological, diagnostic and various scientific findings by collecting, analyzing, and summarizing information from field-collected samples.
+		\item Maintain inter- and intradepartmental workflow by fostering a 
+		spirit of cooperation through communication and problem-solving of most clinical issues
+		\item Maintain a safe and clean working environment by complying with 
+		procedures, rules, and regulations.
+		\item Protect patients and employees by adhering to infection-control 
+		and hazardous waste policies and protocols
+		\item Comply with Good Clinical Laboratory Practice (GCLP), Good 
+		Clinical Practice (GCP), Protocol requirements, and Standard Operating Procedures (SOPs) in all lab duties, processes/activities.
+		\item Perform and document all lab tests as per GCLP, SOPs, and protocol requirements under the supervision of a Clinical technologist/Scientist.
+		\item Perform all internal storage using the Laboratory Data Management System (LDMS) system if required 
+	\end{resume_list}
+	
+	\headingBf{The University of Witwatersrand Faculty of Health Science }{Jan 2017 -- Apr 2018}
+	\headingBf{Clinical Research and Teaching Assistant}{}
+	\begin{resume_list}
+		\item Clinical Research: Design, execute, and record laboratory experiments while adhering to standard scientific protocols. Continuously research and improve existing methods while evaluating innovative techniques.
+		\item Experimental Design: Plan and conduct experiments, ensuring accurate data collection and documentation according to research protocols.
+		\item Scientific publications: Draft, write, and edit scientific reports, journal articles, and abstracts. Present research findings at local, national, and international scientific conferences.
+		\item Teamwork and Training: Train and supervise undergraduate and postgraduate students, fostering a collaborative research environment. Actively participate in laboratory meetings, presentations, and publications.
+		\item Knowledge Sharing: Present research findings and laboratory work at journal clubs, seminars, and other scientific discussions.
+		\item Work Ethic and Initiative: Demonstrate punctuality, the ability to work independently, and a proactive approach to research tasks.
+		\item Financial Management: Assist in budget preparation, track expenditures, prepare capital expenditure requests, and ensure accurate financial documentation for research projects.
+	\end{resume_list}
+	\vspace{10pt}	
+	\headingBf{The Department of Science and Technology, South Africa }{Feb 2016 -- Dec 2016}
+	\headingBf{Science Communicator}{}
+	\begin{resume_list}
+		\itemTitle{Events Coordination and Community Outreach in S.T.E.M}
+		\item 	Conducted public presentations on various science topics to inspire high school pupils to pursue science careers.
+		\item 	Assisted in organizing science events such as Sky Viewing, South African National Science Week, DST Science on the Street, and Sasol Techno X.
+		\item 	Coordinated pupil interaction at national career exhibitions for NRF and Department of Science and Technology South Africa.
+		\item 	Maintained chemical and biology laboratories at Orville Observatory, including constructing, maintaining, and operating standard laboratory equipment, ensuring strict safety procedures.
+		\item 	Demonstrated laboratory tests to educators and pupils, ensuring reliable and precise data for scientific investigations and school science exhibitions.
+		\item 	Captured data and took minutes during monthly staff meetings.
+		\item 	Operated the switchboard at the local office in Johannesburg Observatory.
+		\item 	Assisted in processing financial claims for NRF|SAASTA stakeholders and organized records for future audits.
+		\item 	Booked flights, accommodation, and car hires for NRF staff and stakeholders for science awareness events and campaigns. 
+	\end{resume_list}
+	\vspace{10pt}
+	%-----------%
+	% Education %
+	%-----------%
+	
+	\section{Education}
+	
+	\headingBf{University of KwaZulu Natal}{} % Note: Adding year(s) exposes an implied age
+	\headingIt{Masters in Public Health}{}
+	\headingIt{Epidermiology ; Biostatistics}{}
+	
+	\vspace{10pt}
+	
+	\headingBf{University of Zululand}{} % Note: Adding year(s) exposes an implied age
+	\headingIt{Bsc Honors in Biochemistry}{}
+	\headingIt{Techniques in Molecular Biology ; Advanced General Biochemistry}{}
+	\headingIt{Research Methodology}{}
+	
+	\vspace{10pt}
+	\headingBf{Certifications}{}
+	\begin{resume_list}
+		\item Data Science \hspace{2pt}- Data Science Techniques in Bioinformatics \end{resume_list}
+	\vspace{20pt}
+	%----------------------------%
+	% Extracurricular Activities %
+	%----------------------------%
+	\vspace{10pt}
+	
+	\section{Publications}\textcolor{black}{\scriptsize C=Conference, J=Journal}
+	\vspace{0.2mm}
+	\small{}
+	\begin{enumerate}[leftmargin=*, labelsep=0.5em, align=left, widest={[\textbf{S.1}]}, itemindent=0em, label={\textbf{[\arabic*]}]}]
+		
+		\item[\textbf{[J.4]}] Conrad Mogane, et al. (2022). \href{https://doi.org/10.1016/S2214-109X(22)00239-X}{\textbf{Measurement of kidney function in Malawi, South Africa, and Uganda: a multicentre cohort study}}. \textit{The Lancet Global Health}, Vol. 10, Issue 8, pp. 1159-1169.  doi: 10.1016/S2214-109X(22)00239-X
+		
+		\item[\textbf{[J.3]}] Lebogang Mokotedi, Aletta ME Millen, Conrad Mogane, Monica Gomes, Angela J Woodiwiss, Gavin R Norton, Frederic S Michel. (2020). \href{https://doi.org/10.1371/journal.pone.0230657}{\textbf{Associations of inflammatory markers with impaired left ventricular diastolic and systolic function in collagen-induced arthritis}}. \textit{European Journal of Pharmacology}, Vol. 15, Issue 3, DOI: 10.1371/journal.pone.0230657
+		
+		\item[\textbf{[J.2]}]Conrad Mogane, Lebogang P Mokotedi, Aletta ME Millen, Frederic S Michel. (2019). \href{https://doi.org/10.1139/cjpp-2019-0121}{\textbf{Increased systolic blood pressure associated with hypertriglyceridemia in female Sprague-Dawley rats}}. \textit{Canadian Journal of Physiology and Pharmacology}, Vol. 97, Issue 10, pp. 971-979. DOI: 10.1139/cjpp-2019-0121
+		
+		\item[{[J.1]}] L Mokotedi, FS Michel, C Mogane, PH Dessein, AM Millen. (2018). \href{https://doi.org/10.1136/annrheumdis-2018-eular.5313}{\textbf{THU0082 Impaired left ventricular relaxation and its association with inflammatory markers in collagen-induced arthritis}}. \textit{Journal Name}, Vol. 77, pp. 263-264. DOI:10.1136/annrheumdis-2018-eular.5313
+		
+		
+		
+	\end{enumerate}
+	
+	%-----------%
+	% References %
+	%-----------%
+	\vspace{9pt}
+	\section{References}
+	\vspace{-0.2mm}
+	\small{}
+	\begin{enumerate}[leftmargin=*,labelsep=2mm]
+		\item \textbf{Nasreen Khann}\\
+		Laboratory Manager, HPP\\
+		University of KwaZulu Natal\\
+		Email: Khann4@ukzn.ac.za\\
+		Phone: 084 615 1273\\
+		\textit{Relationship: Line Manager}
+		
+		\item \textbf{Vukani Khumalo}\\
+		Research Associate\\
+		University of Oxford | University of KwaZulu Natal\\
+		Email: khumalov@ukzn.ac.za\\
+		Phone: 068 078 9204\\
+		\textit{Relationship: Colleague}
+		
+		\item \textbf{Trevor Khaba}\\
+		Senior Histology Technician, \\
+		University of KwaZulu Natal\\
+		Email: khbap@ukzn.ac.za\\
+		Phone: 073 959 4344\\
+		\textit{Relationship: Imaging Laboratory Supervisor}
+	\end{enumerate}
+	
+\end{document}
