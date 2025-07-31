@@ -19,7 +19,7 @@ Bridging biomedical research with modern data science. Skilled in developing sca
 """)
 
 # ---------- Sidebar Navigation ----------
-st.sidebar.image("https://avatars.githubusercontent.com/u/12345678", width=150)  # Replace with your GitHub avatar URL
+st.sidebar.image("https://github.com/ConradKatlegoMogane/Latex-Documets/blob/main/IMG_8372.JPG", width=150)  # Replace with your GitHub avatar URL
 st.sidebar.title("📁 Navigate My CV")
 section = st.sidebar.radio("Jump to section:", [
     "Profile Summary", "Skills", "Experience", "Education", "Certifications", "Publications", "Projects", "Contact"
