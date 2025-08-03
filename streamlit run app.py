@@ -20,7 +20,7 @@ Bridging biomedical research with modern data science. Skilled in developing sca
 
 # ---------- Sidebar Navigation ----------
 st.sidebar.image("https://github.com/ConradKatlegoMogane/Latex-Documets/blob/main/IMG_8372.JPG", width=150)  # Replace with your GitHub avatar URL
-st.sidebar.title("📁 Navigate My CV")
+st.sidebar.title("📁 Professional CV")
 section = st.sidebar.radio("Jump to section:", [
     "Profile Summary", "Skills", "Experience", "Education", "Certifications", "Publications", "Projects", "Contact"
 ])
@@ -157,4 +157,5 @@ if section == "Contact":
         submitted = st.form_submit_button("Send Message")
         if submitted:
             st.success("✅ Message sent! I’ll be in touch soon.")
+
 
